@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">NewsAppMVVM</string>
+    <string name="tv_news">Noticias de Futbol</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_description">Descripcion</string>
+    <string name="tv_titulo">Titulo</string>
+    <string name="tv_share">Share</string>
+    <string name="tv_favourite">Favourite</string>
+    <string name="tv_bookmark">Bookmark</string>
+    <string name="tv_sitio_web">Sitio Web:</string>
+    <string name="const_base_url">https://newsapi.org/v2/</string>
+    <string name="api_key">14fdb7271d5646f49732eb34f4c2fc1a</string>
+    <string name="query">futbol</string>
+    <string name="tv_contenido">Contenido</string>
+    <string name="tv_autor">Autor</string>
+    <string name="tv_released_date">Released 20-11-2020</string>
+</resources>
