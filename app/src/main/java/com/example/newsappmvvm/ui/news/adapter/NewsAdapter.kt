@@ -41,7 +41,11 @@ class NewsAdapter(
 
     private inner class NewsViewHolder(val binding: NewsItemBinding, val context: Context) : BaseViewHolder<Article>(binding.root){
         override fun bind(article: Article) {
-            binding.tvSource.text = article.source.name
+
+            binding.tvSource.text = "Fuente: ${article.source.name}"
+
+            binding.tvTitulo.text = article.title
+
             Glide.with(context).load(article.urlToImage)
                 .centerCrop().into(binding.imgNews)
         }

@@ -11,6 +11,7 @@ import com.example.newsappmvvm.databinding.FragmentNewsDetailBinding
 import com.example.newsappmvvm.presentation.NewsPresenter
 
 class NewsDetailFragment : Fragment(R.layout.fragment_news_detail), NewsContract.NewsDetail {
+
     private lateinit var binding: FragmentNewsDetailBinding
 
     private val presenter: NewsPresenter by activityViewModels()
@@ -21,9 +22,8 @@ class NewsDetailFragment : Fragment(R.layout.fragment_news_detail), NewsContract
         showData()
     }
 
-    override fun showData(){
-
-        presenter.getArticle().observe(viewLifecycleOwner){
+    override fun showData() {
+        presenter.getArticle().observe(viewLifecycleOwner) {
 
             binding.tvDate.text = it.publishedAt.take(10)
             binding.tvAuthor.text = it.author.toString()
@@ -33,9 +33,9 @@ class NewsDetailFragment : Fragment(R.layout.fragment_news_detail), NewsContract
             binding.tvUrlText.text = it.url
 
             Glide.with(requireContext()).load(it.urlToImage)
-                    .centerCrop().into(binding.imgNews)
+                .centerCrop().into(binding.imgNews)
             Glide.with(requireContext()).load(it.urlToImage)
-                    .centerCrop().into(binding.imgBackground)
+                .centerCrop().into(binding.imgBackground)
         }
     }
 }
