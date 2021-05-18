@@ -8,11 +8,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.newsappmvvm.R
 import com.example.newsappmvvm.contract.NewsContract
-import com.example.newsappmvvm.core.Resource
 import com.example.newsappmvvm.data.model.Article
 import com.example.newsappmvvm.data.remote.NewsDataSource
 import com.example.newsappmvvm.databinding.FragmentNewsBinding
 import com.example.newsappmvvm.presentation.NewsPresenter
+import com.example.newsappmvvm.core.Result
 import com.example.newsappmvvm.presentation.NewsViewModelFactory
 import com.example.newsappmvvm.repository.NewsAPI
 import com.example.newsappmvvm.repository.NewsRepositoryImpl
@@ -42,17 +42,17 @@ class NewsFragment : Fragment(R.layout.fragment_news), NewsAdapter.OnArticleClic
     override fun initViewModel(){
         viewModel.fetchNews().observe(viewLifecycleOwner, {
             when (it){
-                is Resource.Loading -> {
+                is Result.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                 }
 
-                is Resource.Success -> {
+                is Result.Success -> {
                     binding.progressBar.visibility = View.GONE
                     adapter = NewsAdapter(it.data.articles,this@NewsFragment)
                     binding.rvNews.adapter = adapter
                 }
 
-                is Resource.Failure ->{
+                is Result.Failure ->{
                     Log.d("Error","${it.exception}")
                 }
             }
